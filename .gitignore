@@ -3,19 +3,38 @@ install/
 log/
 __pycache__/
 *.pyc
+.pyc
 .vscode/
+.idea/
 .DS_Store
-# Tanısal dosyalar
+.venv/
+*.egg-info/
+
+# Generated diagnostic files
 frames_*.pdf
 frames_*.gv
 
-# Otomatik üretilen haritalar
-gulse_map_*
-*.pgm
-*.yaml
-*.png
+# Auto-generated maps (keep only reference maps in maps/)
+gulse_map_*.pgm
+gulse_map_*.yaml
+gulse_map_*.png
 
-# Webots yerel dosyaları
+# Webots local project files
 .wbproj
-.deneme.wbproj
+*.wbproj~
+.GaziSim_Alpha.jpg
 .nao_room.jpg
+.deneme.wbproj
+
+# ROS 2 build artifacts
+*.so
+build_*/
+install_*/
+
+# IDE and editor files
+*.swp
+*.swo
+*~
+
+# OS files
+Thumbs.db

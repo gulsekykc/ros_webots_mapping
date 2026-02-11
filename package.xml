@@ -2,14 +2,15 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>gulse_scan_driver</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="gulsekykc@todo.todo">gulsekykc</maintainer>
-  <license>TODO: License declaration</license>
+  <version>0.1.0</version>
+  <description>ROS 2 Webots SLAM driver for autonomous robot navigation with LiDAR, GPS, and IMU integration</description>
+  <maintainer email="maintainer@example.com">gulsekykc</maintainer>
+  <license>Apache License 2.0</license>
 
   <depend>rclpy</depend>
   <depend>webots_ros2_driver</depend>
   <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
