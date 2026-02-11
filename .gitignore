@@ -5,3 +5,17 @@ __pycache__/
 *.pyc
 .vscode/
 .DS_Store
+# Tanısal dosyalar
+frames_*.pdf
+frames_*.gv
+
+# Otomatik üretilen haritalar
+gulse_map_*
+*.pgm
+*.yaml
+*.png
+
+# Webots yerel dosyaları
+.wbproj
+.deneme.wbproj
+.nao_room.jpg
