@@ -12,7 +12,6 @@ from PIL import Image
 
 # --- SÜREÇ YÖNETİMİ ---
 slam_process = None
-auto_process = None # Otonom sürüş (navigator) süreci
 MAPS_DIR = os.getcwd()
 
 def start_slam():
@@ -41,7 +40,6 @@ async def lifespan(app: FastAPI):
     start_slam()
     yield
     stop_proc(slam_process)
-    stop_proc(auto_process)
 
 app = FastAPI(lifespan=lifespan)
 app.mount("/map_files", StaticFiles(directory=MAPS_DIR), name="map_files")
@@ -75,28 +73,6 @@ def save_map():
     except Exception as e:
         return {"status": "error", "message": str(e)}
 
-@app.post("/toggle-auto/{state}")
-def toggle_auto(state: bool):
-    """Otonom sürüşü başlatır veya durdurur"""
-    global auto_process
-    if state:
-        if auto_process is None:
-            print("🤖 Otonom Mod Aktif Ediliyor...")
-            # Navigator düğümünü çalıştırıyoruz
-            auto_process = subprocess.Popen(
-                ["ros2", "run", "gulse_scan_driver", "navigator"], 
-                preexec_fn=os.setsid
-            )
-            return {"status": "success", "message": "Otonom Sürüş Başlatıldı! 🚀"}
-        return {"status": "info", "message": "Zaten otonom modda."}
-    else:
-        print("🛑 Otonom Mod Kapatılıyor...")
-        auto_process = stop_proc(auto_process)
-        # Güvenlik: Robotu durdurmak için boş hız gönder
-        stop_cmd = "ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist '{linear: {x: 0.0}, angular: {z: 0.0}}'"
-        subprocess.run(stop_cmd, shell=True)
-        return {"status": "success", "message": "Manuel Kontrol Aktif. 🎮"}
-
 @app.post("/reset-map")
 def reset_map():
     """Sistemi ve haritayı sıfırlar"""
@@ -118,8 +94,6 @@ def read_root():
             .btn-group { margin: 20px 0; }
             .btn { padding: 15px 25px; margin: 8px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 14px; text-transform: uppercase; }
             .btn-save { background: #238636; color: white; }
-            .btn-auto { background: #1f6feb; color: white; }
-            .btn-stop { background: #f0883e; color: white; }
             .btn-reset { background: #da3633; color: white; }
             .btn:hover { opacity: 0.85; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
             .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; padding: 30px; }
@@ -140,8 +114,6 @@ def read_root():
 
             <div class="btn-group">
                 <button class="btn btn-save" onclick="action('/save-map')">Haritayı Kaydet 💾</button>
-                <button class="btn btn-auto" onclick="action('/toggle-auto/true')">Otonom Başlat 🚀</button>
-                <button class="btn btn-stop" onclick="action('/toggle-auto/false')">Otonom Durdur 🛑</button>
                 <button class="btn btn-reset" onclick="action('/reset-map')">Sistemi Sıfırla ♻️</button>
             </div>
         </div>

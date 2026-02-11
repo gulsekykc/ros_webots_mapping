@@ -25,7 +25,6 @@ setup(
     entry_points={
         'console_scripts': [
             'gps_bridge = gulse_scan_driver.gps_bridge:main',
-            'navigator = gulse_scan_driver.navigator:main',
         ],
     },
 )
