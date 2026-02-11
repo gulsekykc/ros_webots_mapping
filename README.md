@@ -19,8 +19,7 @@
 <img width="1919" height="573" alt="image" src="https://github.com/user-attachments/assets/c2bd3ce7-43e6-41f8-a34f-718ad4a121f3" />
 
 
-
-## ***Sistem Gereksinimleri***
+### **Sistem Gereksinimleri**
 
 Projeyi çalıştırmadan önce sisteminizde aşağıdaki bileşenlerin kurulu olduğundan emin olun:
 
@@ -30,7 +29,14 @@ Projeyi çalıştırmadan önce sisteminizde aşağıdaki bileşenlerin kurulu o
 - **Python:** 3.10+
 
 ---
-
+### **Python Bağımlılıkları (Sanal Ortam ile)**
+Proje bağımlılıklarını izole bir şekilde kurmak için `uv` kullanılması önerilir:
+```bash
+cd ~/gulse_robotics_ws/src/gulse_scan_driver
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
+```
 ## ***Gerekli ROS 2 Paketleri***
 
 Terminalde aşağıdaki komutları çalıştırarak gerekli ROS 2 paketlerini kurun:
@@ -38,16 +44,6 @@ Terminalde aşağıdaki komutları çalıştırarak gerekli ROS 2 paketlerini ku
 ```bash
 sudo apt update
 sudo apt install ros-humble-slam-toolbox ros-humble-nav2-map-server ros-humble-webots-ros2
-```
-
----
-
-## ***Python Bağımlılıkları***
-
-Web arayüzü ve görüntü işleme için gereken Python kütüphanelerini yükleyin:
-
-```bash
-pip install fastapi uvicorn pillow
 ```
 
 ---
