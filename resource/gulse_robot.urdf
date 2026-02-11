@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+<robot name="GulseScan" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <webots>
+    <plugin type="webots_ros2_driver::Ros2IMU">
+      <enabled>true</enabled>
+      <updateRate>30</updateRate>
+      <topicName>/GulseScan/imu</topicName>
+      <alwaysOn>true</alwaysOn>
+      <frameName>imu_inertial</frameName>
+      <inertialUnitName>imu_inertial</inertialUnitName>
+      <accelerometerName>imu_accel</accelerometerName>
+      <gyroName>imu_gyro</gyroName>
+    </plugin>
+
+    <device reference="gps" type="GPS">
+      <ros>
+        <enabled>true</enabled>
+        <alwaysOn>true</alwaysOn>
+        <topicName>/GulseScan/gps</topicName>
+        <frameName>gps</frameName>
+      </ros>
+    </device>
+
+    <device reference="lidar" type="Lidar">
+      <ros>
+        <enabled>true</enabled>
+        <topicName>/scan</topicName>
+        <frameName>lidar</frameName>
+      </ros>
+    </device>
+  </webots>
+
+  <!-- Ana gövde base_footprint -->
+  <link name="base_footprint">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.3 0.3 0.1"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Lidar -->
+  <link name="lidar"/>
+  <joint name="base_footprint_lidar_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="lidar"/>
+    <origin xyz="0 0 0.05" rpy="0 0 0"/>
+  </joint>
+
+  <!-- GPS -->
+  <link name="gps"/>
+  <joint name="base_footprint_gps_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="gps"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- IMU Inertial -->
+  <link name="imu_inertial"/>
+  <joint name="base_footprint_imu_inertial_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="imu_inertial"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- IMU Accelerometer -->
+  <link name="imu_accel"/>
+  <joint name="base_footprint_imu_accel_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="imu_accel"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- IMU Gyro -->
+  <link name="imu_gyro"/>
+  <joint name="base_footprint_imu_gyro_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="imu_gyro"/>
+    <origin xyz="0 0 -0.000022" rpy="0 0 0"/>
+  </joint>
+
+</robot>

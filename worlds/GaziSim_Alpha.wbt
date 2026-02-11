@@ -1,0 +1,79 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.4183187258720058 -0.23377122326212582 0.8777018051475974 4.289047187919641
+  position 1.5373745613689451 4.488818297232068 3.908619684907953
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0.140897 0.00815748 -2.22044e-16
+  rotation 0 1 0 0
+  floorSize 2 2
+}
+Robot {
+  translation 0.798468 0.0279369 0.069804
+  rotation 8.383422025843336e-15 8.602199823682454e-15 1 0.003562954393588327
+  children [
+    GPS {
+    }
+    Shape {
+      appearance PBRAppearance {
+      }
+      geometry Box {
+        size 0.1 0.1 0.1
+      }
+    }
+    Gyro {
+      translation 0 0 -2.156943731430884e-05
+      rotation 0 0 1 3.885780586188047e-16
+      name "imu_gyro"
+    }
+    Accelerometer {
+      name "imu_accel"
+    }
+    InertialUnit {
+      name "imu_inertial"
+      noise 0.0001
+    }
+    Lidar {
+      translation 0 0 0.05
+      horizontalResolution 360
+      fieldOfView 6.28319
+      numberOfLayers 1
+      minRange 0.1
+      maxRange 10
+      type "rotating"
+    }
+  ]
+  name "GulseScan"
+  boundingObject Box {
+    size 0.1 0.1 0.1
+  }
+  physics Physics {
+  }
+  controller "<extern>"
+}
+Solid {
+  translation 0.12 -0.08 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.1 0.2 1
+      }
+      geometry Cylinder {
+        height 0.4
+        radius 0.18
+      }
+    }
+  ]
+}
