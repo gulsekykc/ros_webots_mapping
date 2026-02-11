@@ -37,6 +37,7 @@ uv venv
 source .venv/bin/activate
 uv pip install -r requirements.txt
 ```
+
 ## ***Gerekli ROS 2 Paketleri***
 
 Terminalde aşağıdaki komutları çalıştırarak gerekli ROS 2 paketlerini kurun:
@@ -96,6 +97,7 @@ ros2 launch gulse_scan_driver gulse_slam_launch.py
 ### ***Terminal 3 — Web Paneli***
 
 ```bash
+source ~/gulse_robotics_ws/install/setup.bash
 cd ~/gulse_robotics_ws/src/gulse_scan_driver
 python3 panel.py
 ```
