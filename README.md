@@ -1,3 +1,10 @@
+
+<img width="1915" height="863" alt="image" src="https://github.com/user-attachments/assets/207b06fa-0be7-4409-b144-2c5e76aece33" />
+<img width="1205" height="874" alt="image" src="https://github.com/user-attachments/assets/c8111fc6-36fa-48fb-862e-8bfe94b2e8b3" />
+<img width="1919" height="573" alt="image" src="https://github.com/user-attachments/assets/c2bd3ce7-43e6-41f8-a34f-718ad4a121f3" />
+
+
+
 ## ***Sistem Gereksinimleri***
 
 Projeyi çalıştırmadan önce sisteminizde aşağıdaki bileşenlerin kurulu olduğundan emin olun:
@@ -87,3 +94,4 @@ Ardından tarayıcınızdan aşağıdaki adrese giderek sistemi yönetebilirsini
 ```
 http://localhost:8000
 ```
+"SİSTEMİ SIFIRLA" butonunu kullandıktan sonra değişiklik hemen gelmediyse rviz2 'de reset tuşuna basmanız önerilir.
