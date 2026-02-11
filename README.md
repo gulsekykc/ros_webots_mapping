@@ -1,3 +1,18 @@
+# ROS_WEBOTS_MAPPING
+## Bu proje, ROS 2 Humble ve Webots ekosistemini birleştiren, yüksek hassasiyetli bir otonom haritalama çözümüdür. FastAPI entegrasyonu ile terminal karmaşasını ortadan kaldırarak robotik süreç yönetimini modern bir web arayüzüne taşır.
+
+
+
+-Yüksek Hassasiyetli SLAM: 0.02 çözünürlük parametresiyle milimetrik detayda dijital haritalama.
+
+-Web Kontrol Merkezi: FastAPI üzerinden sistem başlatma, sıfırlama ve harita yönetimi.
+
+-Gerçek Zamanlı Veri Senkronizasyonu: LiDAR ve odometri verilerinin simülasyon ile ROS düğümleri arasında kesintisiz iletimi.
+
+-Akıllı Harita Arşivleme: Kaydedilen teknik verilerin otomatik olarak PNG formatına dönüştürülmesi ve galeriye eklenmesi.
+
+-Modüler Mimari: Farklı robot modellerine ve simülasyon dünyalarına hızlı uyarlanabilen URDF ve Launch yapısı
+
 
 <img width="1915" height="863" alt="image" src="https://github.com/user-attachments/assets/207b06fa-0be7-4409-b144-2c5e76aece33" />
 <img width="1205" height="874" alt="image" src="https://github.com/user-attachments/assets/c8111fc6-36fa-48fb-862e-8bfe94b2e8b3" />
