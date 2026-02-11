@@ -107,4 +107,38 @@ Ardından tarayıcınızdan aşağıdaki adrese giderek sistemi yönetebilirsini
 ```
 http://localhost:8000
 ```
+---
+
+
+
+## **RViz Görselleştirme Ayarları**
+
+
+
+Simülasyon ve SLAM motoru çalıştıktan sonra, verileri görselleştirmek için RViz2 ekranında aşağıdaki yapılandırmaları yapmanız gerekmektedir:
+
+
+
+1. **Fixed Frame:** Sol paneldeki "Global Options" kısmından `Fixed Frame` değerini **map** olarak değiştirin.
+
+2. **Haritayı Görüntüleme:** * `Add` butonuna basın.
+
+   * `By topic` sekmesinden `/map` altındaki **Map** seçeneğini ekleyin.
+
+3. **Robotu Görüntüleme:** * `Add` butonuna basın.
+
+   * `By display type` sekmesinden **RobotModel** veya **TF** bileşenini ekleyin.
+
+4. **Lazer Verileri (LiDAR):**
+
+   * `Add` butonuna basın.
+
+   * `/scan` başlığı (topic) altındaki **LaserScan** bileşenini ekleyin.
+
+   * *İpucu:* Noktaların daha net görünmesi için `Size (m)` değerini `0.05` yapabilirsiniz.
+
+
+
+> **Önemli:** Harita oluşmaya başladığında robotun konumunda kayma veya haritada kopukluk görürseniz, RViz'in sol alt köşesindeki **Reset** butonuna basarak görünümü tazeleyebilirsiniz.
+
 "SİSTEMİ SIFIRLA" butonunu kullandıktan sonra değişiklik hemen gelmediyse rviz2 'de reset tuşuna basmanız önerilir.
